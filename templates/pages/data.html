@@ -1,0 +1,55 @@
+{% extends "layouts/app.html" %}
+{% block title %}Data Visualization{% endblock %}
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <div class="col">
+        <h1 class="row display-1 py-5">Data Visualization</h1>
+        <h4 class="my-5"> LeafWatch was trained on tens of thousands of plant
+            images spanning a variety of species.
+        </h4>
+        <h4> The following graph depicts
+            the distribution of images among the 38 classes in the chosen dataset:
+        </h4>
+
+        <div class="row d-flex justify-centent-center">
+            <img class="w-100 mx-auto d-block my-5" src="{{ url_for('static', filename='images/metrics/data-distribution.png') }}">
+        </div>
+
+        <h4 class="py-4"> The model's final performance metrics were likely affected by the skewed nature
+            of the chosen dataset. The high volume of orange citrus greening, healthy soybean,
+            and yellow leaf curl tomato images most likely cause the model to prefer these 
+            categories when predicting new data. 
+        </h4>
+        <hr>
+
+        <h4 class="py-4"> The percentage of images depicting healthy plants
+             and diseased plants is shown below: 
+        </h4>
+
+        <div class="row d-flex justify-centent-center mx-auto">
+            <img class="w-50 mx-auto d-block my-5" src="{{ url_for('static', filename='images/metrics/healthy-diseased-split.png') }}">
+        </div>
+        
+        <h4 class="py-4"> Nearly three quarters of all images 
+            in the dataset depict diseased plants. This likely leads the model to
+            prefer predicting a diseased leaf over a healthy one when analyzing new data.
+        </h4>
+        <hr>
+
+
+        <h4 class="py-4"> The mean value of each color channel for all images is shown below:
+        </h4>
+
+        <div class="row d-flex justify-centent-center">
+            <img class="w-100 mx-auto d-block my-5" src="{{ url_for('static', filename='images/metrics/color-distribution.png') }}">
+        </div>
+        
+        <h4 class="py-4"> The leaves imaged in the dataset were placed on a variety
+            of backgrounds under different lighting and with various levels of
+            quality and noise. The analysis of color channel distribution reveals only a slight
+            skewing towards green channels, which is to be expected with an image set
+            of plant leaves.
+        </h4>
+    </div>
+</div>
+{% endblock %}

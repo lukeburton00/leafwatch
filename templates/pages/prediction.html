@@ -1,0 +1,32 @@
+{% extends "layouts/app.html" %}
+{% block title %}Image Prediction{% endblock %}
+{% block content %}
+    <h1 class="display-1 py-5">Image Prediction</h1>
+
+    <h4> Upload your plant image and click Predict. The application will not permanently
+        store your image.
+    </h4>
+    
+    <form method="post" enctype="multipart/form-data" class="container d-flex">
+        <div class="col-5">
+            <div class="row-3 my-5 mb-3">
+                <label for="image" class="form-label">Upload your image</label>
+                <input type="file" id="image" name="image" class="form-control">
+            </div>
+            <input type="submit" value="Predict" class="row-5 btn btn-secondary"></input>
+        </div>
+    </form>
+    <hr>
+    {% if prediction %}
+        <h1>Leaf type:
+            <strong>{{ prediction[0] }}</strong>
+        </h1>
+        <h1>Confidence:
+            <strong>{{ prediction[1] }}%</strong>
+        </h1>
+    {% else %}
+        {{super()}}
+    {% endif %}
+    <p><strong>Note:</strong> A confidence value of 100% may indicate
+    that the model could not predict your image.</p>
+{% endblock %}

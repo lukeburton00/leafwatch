@@ -1,0 +1,13 @@
+{% extends "layouts/app.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1 class="display-1 py-5 text-center">LeafWatch</h1>
+    <h3 class="my-5 text-center"> LeafWatch is a machine learning application 
+        developed to identify plant diseases.
+        <a href="{{ url_for('prediction') }}" class="my-4 nav-link text-primary text-center">Get Started</a>
+    </h3>
+    <div class="my-5">
+        <img class="w-50 mx-auto d-block rounded" src="{{ url_for('static', filename='images/test/raspberry-healthy.jpg') }}">
+        <img class="w-50 mx-auto d-block " src="{{ url_for('static', filename='images/raspberry-predict.png') }}">
+    </div>
+{% endblock %}
